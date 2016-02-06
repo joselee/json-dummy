@@ -5,7 +5,7 @@ Check out the [demo here!](http://joselee.github.io/json-dummy)
 
 json-dummy allows you to define a json structure, and name it. You can then use that name as a reference in other json structures. Unlike other json generation tools throughout the interwebs that require you to write obscure syntax to define the structure, json-dummy attempts to provide a friendly user interface, so you can quickly get the dummy data you need without studying the tool's documentation.
 
-## Tools used to build json-dummy:
+### Tools used to build json-dummy:
 - [Faker.js](http://marak.com/faker.js/)
 - [Angular.js 1.5](http://angularjs.org)
 - [Angular Material](https://material.angularjs.org/latest/)
