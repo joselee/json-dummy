@@ -1,16 +1,39 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>JSON Dummy</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="initial-scale=1, width=device-width">
-  		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
-		<link rel="stylesheet" type="text/css" href="styles/styles.css">
-		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
-		<script src="scripts/vendor/faker.min.js"></script>
-		<script src="scripts/script.js"></script>
-	</head>
-	<body>
-		hello world
-	</body>
+
+<head>
+    <title>JSON Dummy</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <link href="./bower_components/angular-material/angular-material.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <script src="./bower_components/angular/angular.js"></script>
+    <script src="./bower_components/angular-animate/angular-animate.js"></script>
+    <script src="./bower_components/angular-aria/angular-aria.js"></script>
+    <script src="./bower_components/angular-material/angular-material.js"></script>
+    <script src="./bower_components/faker/build/build/faker.min.js"></script>
+    <script src="./bower_components/lodash/dist/lodash.min.js"></script>
+    <script src="scripts/module.js"></script>
+    <script src="scripts/controller.js"></script>
+</head>
+
+<body ng-app="jsonDummy" ng-controller="Controller as ctrl">
+    <md-button class="md-raised">create class</md-button>
+    <!-- <md-card ng-repeat="jsonClass in ctrl.jsonClasses">
+        <md-card-content>
+            <p>Card content</p>
+        </md-card-content>
+    </md-card>
+    <md-card ng-if="ctrl.jsonClasses.length === 0">
+        <md-card-content>
+            <p>No classes</p>
+        </md-card-content>
+    </md-card> -->
+    <md-select ng-model="ctrl.selectedType" aria-label="Type">
+        <md-option ng-value="type" ng-repeat="type in ctrl.dataTypes">{{ type.name }}</md-option>
+    </md-select>
+    <md-button class="md-raised" ng-click="ctrl.generate()">generate JSON</md-button>
+    <pre ng-show="ctrl.generated">{{ctrl.generated}}</pre>
+</body>
+
 </html>
