@@ -5,7 +5,10 @@
 		this.jsonClasses = [];
 		this.dataTypes = []
 		this.generated = null;
-		this.selectedType = null;
+		this.property = {
+			name: "",
+			type: null,
+		};
 
 		this.blacklisted = function (categoryName){
 			var blacklist = ["locales", "locale", "localeFallback", "definitions", "helpers"];
@@ -20,10 +23,10 @@
 			}
 		});
 		this.dataTypes = _.sortBy(this.dataTypes, "name");
-		this.selectedType = this.dataTypes[0];
+		this.property.type = this.dataTypes[0];
 
 		this.generate = function(){
-			_this.generated = {name:"test", value:_this.selectedType.ctor()};
+			_this.generated = {name:_this.property.name, value:_this.property.type.ctor()};
 		};
 	}]);
 })();

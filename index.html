@@ -19,20 +19,20 @@
 
 <body ng-app="jsonDummy" ng-controller="Controller as ctrl">
     <md-button class="md-raised">create class</md-button>
-    <!-- <md-card ng-repeat="jsonClass in ctrl.jsonClasses">
-        <md-card-content>
-            <p>Card content</p>
-        </md-card-content>
-    </md-card>
-    <md-card ng-if="ctrl.jsonClasses.length === 0">
-        <md-card-content>
-            <p>No classes</p>
-        </md-card-content>
-    </md-card> -->
-    <md-select ng-model="ctrl.selectedType" aria-label="Type">
-        <md-option ng-value="type" ng-repeat="type in ctrl.dataTypes">{{ type.name }}</md-option>
-    </md-select>
-    <md-button class="md-raised" ng-click="ctrl.generate()">generate JSON</md-button>
+    <form name="classForm">
+        <md-input-container>
+            <label>Property name</label>
+            <input name="propertyName" ng-model="ctrl.property.name" required minlength="3">
+            <div ng-messages="classForm.propertyName.$error" ng-show="classForm.propertyName.$dirty && classForm.propertyName.$invalid">
+                <div ng-message="required">This is required!</div>
+                <div ng-message="minlength">That's too short!</div>
+            </div>
+        </md-input-container>
+        <md-select ng-model="ctrl.property.type" aria-label="Type">
+            <md-option ng-value="type" ng-repeat="type in ctrl.dataTypes">{{ type.name }}</md-option>
+        </md-select>
+        <md-button class="md-raised" ng-click="ctrl.generate()">generate JSON</md-button>
+    </form>
     <pre ng-show="ctrl.generated">{{ctrl.generated}}</pre>
 </body>
 
