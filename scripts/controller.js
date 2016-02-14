@@ -28,5 +28,30 @@
 		this.generate = function(){
 			_this.generated = {name:_this.property.name, value:_this.property.type.ctor()};
 		};
+
+		this.availableMethods = function(){
+			var result = {};
+			var whitelist = [
+				"address",
+				"commerce",
+				"company",
+				"date",
+				"finance",
+				"hacker",
+				"image",
+				"internet",
+				"lorem",
+				"name",
+				"phone",
+				"random"
+			];
+
+			_.each(faker, function(category, categoryName){
+				if(whitelist.indexOf(categoryName) !== -1){
+					result[categoryName] = category;
+				}
+			});
+			return JSON.stringify(result, null, 4);
+		};
 	}]);
 })();

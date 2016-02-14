@@ -19,21 +19,20 @@
 
 <body ng-app="jsonDummy" ng-controller="Controller as ctrl">
     <md-button class="md-raised">create class</md-button>
-    <form name="classForm">
+    <form name="classForm" novalidate>
         <md-input-container>
             <label>Property name</label>
-            <input name="propertyName" ng-model="ctrl.property.name" required minlength="3">
-            <div ng-messages="classForm.propertyName.$error" ng-show="classForm.propertyName.$dirty && classForm.propertyName.$invalid">
+            <input name="propertyName" ng-model="ctrl.property.name" required>
+            <div ng-messages="classForm.propertyName.$error" >
                 <div ng-message="required">This is required!</div>
-                <div ng-message="minlength">That's too short!</div>
             </div>
         </md-input-container>
         <md-select ng-model="ctrl.property.type" aria-label="Type">
             <md-option ng-value="type" ng-repeat="type in ctrl.dataTypes">{{ type.name }}</md-option>
         </md-select>
-        <md-button class="md-raised" ng-click="ctrl.generate()">generate JSON</md-button>
+        <md-button type="submit" class="md-raised" ng-click="ctrl.generate()" ng-disabled="classForm.$touched && classForm.$invalid">generate JSON</md-button>
     </form>
-    <pre ng-show="ctrl.generated">{{ctrl.generated}}</pre>
+    <pre>{{ctrl.availableMethods()}}</pre>
 </body>
 
 </html>
