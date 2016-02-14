@@ -43,13 +43,11 @@ gulp.task("libs", function(){
 	del.sync(["build/libs.js", "build/libs.css"]);
 	gulp.src(mainBowerFiles())
 		.pipe(filter(["**/*.js"]))
-        .pipe(listFiles())
 		.pipe(concat("libs.js"))
 		.pipe(gulp.dest("build"));
 
 	gulp.src(mainBowerFiles())
 		.pipe(filter(["**/*.less", "**/*.css"]))
-        .pipe(listFiles())
 		.pipe(concat("libs.css"))
 		.pipe(gulp.dest("build"));
 });

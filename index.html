@@ -12,21 +12,31 @@
 </head>
 
 <body ng-app="JsonDummy" ng-controller="JsonDummyController as ctrl">
-    <md-button class="md-raised">create class</md-button>
-    <form name="classForm" novalidate>
-        <md-input-container>
-            <label>Property name</label>
-            <input name="propertyName" ng-model="ctrl.property.name" required>
-            <div ng-messages="classForm.propertyName.$error" >
-                <div ng-message="required">This is required!</div>
-            </div>
-        </md-input-container>
-        <md-select ng-model="ctrl.property.type" aria-label="Type">
-            <md-option ng-value="type" ng-repeat="type in ctrl.dataTypes">{{ type.name }}</md-option>
-        </md-select>
-        <md-button type="submit" class="md-raised" ng-click="ctrl.generate()" ng-disabled="classForm.$touched && classForm.$invalid">generate JSON</md-button>
+    <!--<md-button class="md-raised">create class</md-button>-->
+    <form name="classForm" id="editor" novalidate>
+        <div ng-repeat="property in ctrl.properties">
+            <md-input-container class="vTop">
+                <label>Property name</label>
+                <input name="propertyName" ng-model="property.name" required>
+                <div ng-messages="classForm.propertyName.$error" >
+                    <div ng-message="required">This is required!</div>
+                </div>
+            </md-input-container>
+            
+            <md-input-container class="vTop">
+                <label>Value type</label>
+                <md-select ng-model="property.selectedValueType">
+                    <md-optgroup label="{{category.name}}" ng-repeat="category in ctrl.categories">
+                        <md-option ng-value="type" ng-repeat="type in category.types">{{type.name}}</md-option>
+                    </md-optgroup>
+                </md-select>
+            </md-input-container>
+        </div>
+        <md-button ng-click="ctrl.addNewProperty()">+ add property</md-button>
     </form>
-    <pre>{{ctrl.availableMethods()}}</pre>
+    <md-button type="submit" class="md-raised generate-button" ng-click="ctrl.generate()" ng-disabled="classForm.$touched && classForm.$invalid">generate JSON</md-button>
+    
+    <pre>{{ctrl.jsonResult}}</pre>
 </body>
 
 </html>
