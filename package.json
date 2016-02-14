@@ -1,0 +1,36 @@
+{
+  "name": "json-dummy",
+  "version": "1.0.0",
+  "description": "User friendly mock json generator",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-filesize": "0.0.6",
+    "gulp-filter": "^3.0.1",
+    "gulp-less": "^3.0.5",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-typescript": "^2.11.0",
+    "gulp-uglify": "^1.5.2",
+    "main-bower-files": "^2.11.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joselee/json-dummy.git"
+  },
+  "keywords": [
+    "json",
+    "generator"
+  ],
+  "author": "Jose Lee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joselee/json-dummy/issues"
+  },
+  "homepage": "https://github.com/joselee/json-dummy#readme"
+}

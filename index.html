@@ -4,20 +4,14 @@
 <head>
     <title>JSON Dummy</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, width=device-width">
-    <link href="./bower_components/angular-material/angular-material.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="styles/styles.css">
-    <script src="./bower_components/angular/angular.js"></script>
-    <script src="./bower_components/angular-animate/angular-animate.js"></script>
-    <script src="./bower_components/angular-aria/angular-aria.js"></script>
-    <script src="./bower_components/angular-material/angular-material.js"></script>
-    <script src="./bower_components/faker/build/build/faker.min.js"></script>
-    <script src="./bower_components/lodash/dist/lodash.min.js"></script>
-    <script src="scripts/module.js"></script>
-    <script src="scripts/controller.js"></script>
+    <meta name="viewport" content="initial-scale=1, width=device-width">    
+    <link rel="stylesheet" type="text/css" href="build/libs.css">
+    <link rel="stylesheet" type="text/css" href="build/app.css">
+    <script src="build/libs.js"></script>
+    <script src="build/app.js"></script>
 </head>
 
-<body ng-app="jsonDummy" ng-controller="Controller as ctrl">
+<body ng-app="JsonDummy" ng-controller="JsonDummyController as ctrl">
     <md-button class="md-raised">create class</md-button>
     <form name="classForm" novalidate>
         <md-input-container>
